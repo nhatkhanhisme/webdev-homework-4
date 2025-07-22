@@ -103,5 +103,19 @@
       </div>
     </div>
 
+    <script>
+      // Yêu cầu 1: Thay đổi nội dung
+      function changeText() {
+        const greeting = document.getElementById("greeting");
+        greeting.textContent = "Chào mừng bạn đến với bài tập DOM!";
+      }
+
+      // Yêu cầu 2: Thay đổi màu nền của div có ID là "box"
+      const colorButton = document.querySelectorAll("button")[1]; // Nút thứ 2 trong tài liệu
+      colorButton.addEventListener("click", function () {
+        const box = document.getElementById("box");
+        box.style.backgroundColor = "orange";
+      });
+    </script>
   </body>
 </html>
