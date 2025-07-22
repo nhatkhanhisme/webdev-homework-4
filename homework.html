@@ -116,6 +116,38 @@
         const box = document.getElementById("box");
         box.style.backgroundColor = "orange";
       });
+
+      // Yêu cầu 3: Thêm và Xóa công việc trong danh sách
+      const addButton = document.querySelectorAll("button")[2];
+      const todoInput = document.getElementById("todoInput");
+      const todoList = document.getElementById("todoList");
+
+      addButton.addEventListener("click", function () {
+        const task = todoInput.value.trim();
+        if (task !== "") {
+          const li = document.createElement("li");
+
+          const span = document.createElement("span");
+          span.textContent = task;
+
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Xóa";
+          deleteButton.addEventListener("click", function () {
+            removeTodo(this);
+          });
+
+          li.appendChild(span);
+          li.appendChild(deleteButton);
+          todoList.appendChild(li);
+
+          todoInput.value = ""; // Xóa nội dung input sau khi thêm
+        }
+      });
+
+      function removeTodo(buttonElement) {
+        const li = buttonElement.parentElement;
+        li.remove();
+      }
     </script>
   </body>
 </html>
